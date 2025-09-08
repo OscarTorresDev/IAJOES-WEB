@@ -1,0 +1,33 @@
+name: Deploy to Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - main # This workflow runs on every push to the 'main' branch
+
+jobs:
+  build_and_deploy:
+    runs-on: self-hosted # Use the label for your self-hosted runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Or your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Build Docker image
+        run: |
+          # Use github.run_number to get the automatic run number
+          VERSION=${{ github.run_number }}
+          # Build the image and tag it with the version and latest
+          docker build -t ai-joes-website:$VERSION -t ai-joes-website:latest .
+
