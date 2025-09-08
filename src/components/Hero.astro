@@ -1,0 +1,33 @@
+---
+import { getLangFromUrl, useTranslations, getLocalizedUrl } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="section bg-gradient-to-br from-primary-50 to-primary-100">
+  <div class="container">
+    <div class="max-w-4xl mx-auto text-center animate-fade-in">
+      <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-slide-up">
+        {t('hero.title')}
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+        {t('hero.subtitle')}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.4s;">
+        <a href={getLocalizedUrl('/#contact', lang)} class="btn-primary">
+          {t('hero.cta')}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a href={getLocalizedUrl('/#about', lang)} class="btn-secondary">
+          {t('hero.learn')}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

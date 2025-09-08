@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Welcome from '../components/Welcome.astro';
+import { useTranslations } from '../utils/i18n';
+
+const t = useTranslations('en');
+---
+
+<Layout 
+  title="AI Joes - AI Solutions for the Average Joe" 
+  description={t('hero.subtitle')}
+  lang="en"
+>
+  <Welcome />
+</Layout>

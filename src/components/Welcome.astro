@@ -1,0 +1,20 @@
+---
+import { getLangFromUrl } from '../utils/i18n';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Services from './Services.astro';
+import About from './About.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Header />
+<main>
+  <Hero />
+  <Services />
+  <About />
+  <Contact />
+</main>
+<Footer />

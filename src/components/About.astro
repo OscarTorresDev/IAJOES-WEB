@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="about" class="section bg-gray-50">
+  <div class="container">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-fade-in">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">{t('about.title')}</h2>
+          <p class="text-lg text-gray-600 mb-8">{t('about.desc')}</p>
+          
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">500+</div>
+              <div class="text-gray-600">Businesses Helped</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">98%</div>
+              <div class="text-gray-600">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="relative">
+            <img 
+              src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600" 
+              alt="AI Technology" 
+              class="rounded-lg shadow-lg"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-primary-600/20 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

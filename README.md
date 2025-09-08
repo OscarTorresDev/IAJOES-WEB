@@ -1,259 +1,201 @@
-# AI Joes Website - Multilingual Edition
+# AI Joes Website
 
-A modern, flexible website for AI Joes built with Next.js 14, featuring easy content management through Markdown files and full Spanish language support for Latin American customers.
+A modern, bilingual website for AI Joes - bringing AI solutions to everyday businesses. Built with Astro, Tailwind CSS, and featuring a markdown-based content management system.
 
-## 🌍 Features
+## 🌟 Features
 
-- 🚀 **Modern Stack**: Next.js 14 with TypeScript and Tailwind CSS
-- 📝 **Easy Content Management**: Add/edit content without touching code
-- 🌐 **Multilingual Support**: English and Spanish with automatic language detection
-- 📱 **Responsive Design**: Optimized for all devices
-- ⚡ **Fast Performance**: Optimized builds and static generation
-- 🐳 **Docker Ready**: Easy deployment with Docker
-- 🔒 **SEO Optimized**: Built-in meta tags and structured data for both languages
+- **Bilingual Support**: Full English and Spanish localization
+- **Modern Design**: Clean, professional UI with smooth animations
+- **Content Management**: Easy markdown-based blog system
+- **Responsive**: Mobile-first design that works on all devices
+- **SEO Optimized**: Built-in sitemap and meta tag management
+- **Docker Ready**: Production-ready containerization
 
-## 🌐 Language Support
+## 🚀 Quick Start
 
-- 🇺🇸 **English** - Primary language
-- 🇪🇸 **Spanish** - For Latin American customers
+### Prerequisites
 
-**URL Structure:**
-- English: `/en/about`, `/en/services`, `/en/blog`
-- Spanish: `/es/about`, `/es/services`, `/es/blog`
-
-## Quick Start
+- Node.js 18 or higher
+- npm or yarn
+- Docker (for containerized deployment)
 
 ### Local Development
 
-1. **Clone and install dependencies:**
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser:**
+   Navigate to `http://localhost:4321`
+
+## 🐳 Docker Deployment
+
+### Building the Docker Image
+
+1. **Build the Docker image:**
+   ```bash
+   docker build -t ai-joes-website .
+   ```
+
+2. **Run the container:**
+   ```bash
+   docker run -p 80:80 ai-joes-website
+   ```
+
+3. **Access the website:**
+   Open `http://localhost` in your browser
+
+### Docker Compose (Optional)
+
+Create a `docker-compose.yml` file for easier management:
+
+```yaml
+version: '3.8'
+services:
+  ai-joes-website:
+    build: .
+    ports:
+      - "80:80"
+    restart: unless-stopped
+```
+
+Then run:
 ```bash
-git clone <repository-url>
-cd ai-joes-website
-npm install
-```
-
-2. **Run the development server:**
-```bash
-npm run dev
-```
-
-3. **Open http://localhost:3000** in your browser
-
-### Content Management
-
-Content is managed through Markdown files organized by language:
-
-```
-content/
-├── en/          # English content
-│   ├── pages/   # Static pages
-│   └── blog/    # Blog posts
-└── es/          # Spanish content
-    ├── pages/   # Páginas estáticas
-    └── blog/    # Publicaciones del blog
-```
-
-See `content/MULTILINGUAL-GUIDE.md` for detailed multilingual content management instructions.
-
-## 🌍 Multilingual Content Workflow
-
-### Adding English Content
-1. Create files in `content/en/pages/` or `content/en/blog/`
-2. Use standard markdown format with front matter
-
-### Adding Spanish Content
-1. Create corresponding files in `content/es/pages/` or `content/es/blog/`
-2. Translate content while maintaining the same structure
-3. Use appropriate Spanish terminology and cultural context
-
-### Example Structure:
-```
-content/en/pages/services.md    # English services page
-content/es/pages/services.md    # Spanish services page (servicios)
-```
-
-## Docker Deployment
-
-### Simple Docker Build
-
-```bash
-# Build the image
-docker build -t ai-joes-website .
-
-# Run the container
-docker run -p 3000:3000 ai-joes-website
-```
-
-### Docker Compose (Recommended)
-
-```bash
-# Development
 docker-compose up -d
-
-# Production with nginx
-docker-compose --profile production up -d
 ```
 
-### Environment Variables
+### Production Deployment
 
-Create a `.env.local` file for environment-specific settings:
+For production deployment, you might want to use a reverse proxy like Nginx or deploy to cloud platforms:
 
-```env
-# Optional analytics
-NEXT_PUBLIC_GA_ID=your-google-analytics-id
-
-# Contact form (if using external service)
-CONTACT_FORM_ENDPOINT=your-contact-form-endpoint
-
-# Default locale (optional - defaults to 'en')
-DEFAULT_LOCALE=en
-```
-
-## Project Structure
-
-```
-ai-joes-website/
-├── app/                          # Next.js app directory
-│   ├── [locale]/                # Locale-specific pages
-│   │   ├── page.tsx            # Home page
-│   │   ├── [slug]/             # Dynamic pages
-│   │   └── blog/               # Blog section
-│   ├── components/             # Reusable components
-│   │   ├── Header.tsx          # Navigation with language switcher
-│   │   ├── Footer.tsx          # Localized footer
-│   │   └── LanguageSwitcher.tsx # Language toggle component
-│   └── globals.css             # Global styles
-├── content/                    # Content management
-│   ├── en/                    # English content
-│   │   ├── pages/             # Static pages
-│   │   └── blog/              # Blog posts
-│   ├── es/                    # Spanish content
-│   │   ├── pages/             # Páginas estáticas
-│   │   └── blog/              # Publicaciones del blog
-│   └── MULTILINGUAL-GUIDE.md  # Multilingual content guide
-├── messages/                  # Translation files
-│   ├── en.json               # English UI translations
-│   └── es.json               # Spanish UI translations
-├── lib/                      # Utilities
-│   └── contentManager.ts     # Multilingual content processing
-├── middleware.ts             # Language detection middleware
-├── i18n.ts                  # Internationalization config
-├── Dockerfile               # Docker configuration
-├── docker-compose.yml       # Docker Compose setup
-└── package.json            # Dependencies
-```
-
-## 🌐 Language Features
-
-### Automatic Language Detection
-- Detects user's browser language preference
-- Falls back to English if Spanish content unavailable
-- Remembers user's language choice
-
-### Language Switcher
-- Globe icon with current language flag
-- Easy switching between English/Spanish
-- Maintains current page context when switching
-
-### Content Fallback
-- Spanish content falls back to English if translation missing
-- Ensures no broken pages due to missing translations
-
-## Content Management Examples
-
-### English Page (`content/en/pages/services.md`):
-```markdown
----
-title: "Our Services"
-description: "AI solutions for modern business"
----
-
-# Our Services
-We offer comprehensive AI solutions...
-```
-
-### Spanish Page (`content/es/pages/services.md`):
-```markdown
----
-title: "Nuestros Servicios"
-description: "Soluciones de IA para negocios modernos"
----
-
-# Nuestros Servicios
-Ofrecemos soluciones integrales de IA...
-```
-
-## Production Deployment
-
-### Option 1: Simple Docker Deploy
+**AWS ECS/Fargate:**
 ```bash
-# Build for production
-docker build -t ai-joes-website .
+# Tag for ECR
+docker tag ai-joes-website:latest your-account.dkr.ecr.region.amazonaws.com/ai-joes-website:latest
 
-# Run with restart policy
-docker run -d --name ai-joes \
-  --restart unless-stopped \
-  -p 3000:3000 \
-  ai-joes-website
+# Push to ECR
+docker push your-account.dkr.ecr.region.amazonaws.com/ai-joes-website:latest
 ```
 
-### Option 2: Cloud Deployment
-The application works with any Docker-compatible hosting:
+**Google Cloud Run:**
+```bash
+# Tag for GCR
+docker tag ai-joes-website:latest gcr.io/your-project/ai-joes-website:latest
 
-- **Vercel**: Automatic deployment with Next.js optimization
-- **AWS**: ECS, Elastic Beanstalk with multilingual support
-- **Google Cloud**: Cloud Run with international routing
-- **Azure**: Container Instances with global distribution
-- **DigitalOcean**: App Platform with multi-region deployment
+# Push to GCR
+docker push gcr.io/your-project/ai-joes-website:latest
+```
 
-## SEO & International Features
+## 📝 Content Management
 
-- **Multilingual URLs**: `/en/about` vs `/es/about`
-- **Language-specific meta tags**: Optimized for each language
-- **Hreflang tags**: Automatic alternate language indicators
-- **Sitemap generation**: Separate entries for each language
-- **Cultural localization**: Date formats, number formats, etc.
+### Adding Blog Posts
 
-## Maintenance
+Your team can easily add new blog posts without technical knowledge:
 
-### Content Updates
-- Edit files in `content/en/` or `content/es/` directories
-- Both languages can be updated independently
-- Changes reflect immediately after deployment
+1. **Create a new markdown file** in `src/content/blog/`
+2. **Use this template:**
+
+```markdown
+---
+title: 'Your Post Title'
+description: 'Brief description of the post'
+pubDate: 2024-01-15
+heroImage: 'https://images.pexels.com/photos/example.jpg'
+tags: ['AI', 'Business', 'Technology']
+lang: 'en'  # Use 'es' for Spanish posts
+featured: false  # Set to true for featured posts
+---
+
+# Your Content Here
+
+Write your blog post using standard markdown formatting:
+
+- **Bold text**
+- *Italic text*
+- [Links](https://example.com)
+- Lists and more!
+
+## Subheadings
+
+Add images, code blocks, and any other markdown content.
+```
+
+3. **File naming convention:**
+   - English posts: `your-post-title-en.md`
+   - Spanish posts: `your-post-title-es.md`
+
+### Supported Languages
+
+- **English** (`en`): Default language, accessible at `/`
+- **Spanish** (`es`): Accessible at `/es/`
+
+## 🛠️ Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run astro` | Run Astro CLI commands |
+
+## 📁 Project Structure
+
+```
+/
+├── public/                 # Static assets
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── content/          # Markdown content (blogs)
+│   ├── i18n/             # Translation files
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Route pages
+│   ├── styles/           # Global styles
+│   └── utils/            # Utility functions
+├── Dockerfile            # Docker configuration
+├── astro.config.mjs      # Astro configuration
+└── tailwind.config.mjs   # Tailwind CSS configuration
+```
+
+## 🎨 Customization
+
+### Colors
+
+The website uses a professional color scheme defined in `tailwind.config.mjs`:
+
+- **Primary Blue**: #0066CC (AI Joes brand color)
+- **Accent Orange**: #FF6B35 (Call-to-action elements)
+- **Neutral Grays**: Various shades for text and backgrounds
 
 ### Adding New Languages
-1. Add locale to `middleware.ts`
-2. Create translation files in `messages/`
-3. Add content directory structure in `content/`
-4. Update language switcher component
 
-### Translation Workflow
-1. Create English content first
-2. Translate to Spanish (or hire professional translators)
-3. Place translated content in `content/es/`
-4. Test both language versions
+1. Add language to `src/i18n/translations.ts`
+2. Create new page routes in `src/pages/[lang]/`
+3. Update navigation components
 
-## Performance Features
+### Modifying Content
 
-- ⚡ Static page generation for both languages
-- 🖼️ Automatic image optimization
-- 📦 Bundle optimization with tree shaking
-- 🔄 Incremental static regeneration
-- 🌐 CDN-ready for global distribution
-- 📱 Mobile-first responsive design
+- **Homepage content**: Edit components in `src/components/`
+- **Translations**: Update `src/i18n/translations.ts`
+- **Styling**: Modify `src/styles/global.css` and Tailwind classes
 
-## Support
+## 🔧 Technical Details
 
-For technical support:
-1. Check the logs: `docker logs <container-name>`
-2. Verify content format in `content/MULTILINGUAL-GUIDE.md`
-3. Test locally with `npm run dev`
-4. Check language-specific content paths
+- **Framework**: Astro 5.x
+- **Styling**: Tailwind CSS 3.x
+- **Content**: Markdown with frontmatter
+- **Deployment**: Docker with Nginx
+- **Node Version**: 18+ (Alpine Linux in container)
 
-## License
+## 📞 Support
 
-Private - AI Joes Internal Use
+For technical support or questions about content management, contact the development team.
 
----
+## 📄 License
 
-¡Ahora tu sitio web está listo para servir a clientes en inglés y español! 🎉
+This project is proprietary to AI Joes. All rights reserved.
