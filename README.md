@@ -198,4 +198,4 @@ For technical support or questions about content management, contact the develop
 
 ## 📄 License
 
-This project is proprietary to AI Joes. All rights reserved.
+This project is proprietary to AI Joes. All rights reserved.# IAJOES-WEB
