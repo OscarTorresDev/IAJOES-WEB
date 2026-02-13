@@ -1,6 +1,127 @@
+    Ctrl+J
+
+debo poner esto :
+ 
+Section Title: Our Technology Stack
+The Core: Universal Artifact Engine (UAE)
+At the heart of our platform lies the Universal Artifact Engine (UAE).
+This proprietary AI infrastructure is engineered to transform
+unstructured conversations into high-value, structured deliverables. By
+enforcing strict business rules and cognitive guiderails, UAE ensures
+that every interaction results in a precise 'artifact'—such as a legal
+document, a logistics quote, or a verified data record—eliminating
+hallucinations and ensuring enterprise-grade reliability.
+Specialized Modules: Powered by UAE
+We deploy specialized cognitive modules tailored for specific industry workflows, all running on the robust UAE framework:
+
+    LUCY | Debt Management Module
+      Lucy  is our premier cognitive assistant for portfolio management. Built on  the UAE infrastructure, Lucy automates the outreach and follow-up  process for debt recovery. Her primary objective is to engage in  professional, empathetic dialogue to secure Structured Payment Commitments.  By capturing specific dates and amounts within defined business  parameters, Lucy turns complex collection efforts into actionable  financial data without the need for manual intervention.
+    LOGISTICS | Shipping & Estimates Module
+      Our  logistics module leverages UAE to streamline the supply chain  experience. It interacts with users to gather precise shipping  requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making.
+
+##     en esta pagina :   adaptalo para que sea adecuado al contexto visual :  
+
+## import { getLangFromUrl, useTranslations } from '../utils/i18n'; const lang = getLangFromUrl(Astro.url); const t = useTranslations(lang); const services = [   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.automation.title'),     description: t('services.automation.desc'),   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.analytics.title'),     description: t('services.analytics.desc'),   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.support.title'),     description: t('services.support.desc'),   }, ];
+<section id="services" class="section bg-white"> &nbsp;&nbsp;<div class="container"> &nbsp;&nbsp;&nbsp;&nbsp;<div class="text-center mb-16"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p> &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;<div class="grid md:grid-cols-3 gap-8"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{services.map((service, index) => ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-primary-600" set:html={service.icon} /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-gray-600">{service.description}</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))} &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;</div> </section>
+
+Sí, debes incluirlo, pero adaptado al estilo y estructura de la página que muestras. Esa sección es una grid de tarjetas (cards) con ícono + título + descripción breve, en un formato visual limpio y centrado en 3 columnas en desktop.
+
+El texto que tienes es muy denso y largo (estilo landing page corporativa o whitepaper), mientras que el componente Astro actual espera descripciones cortas (1–3 líneas) para que quepan bien en las tarjetas sin romper el diseño.
+Recomendación: cómo adaptarlo
+
+Opción recomendada → convertirlo en 3 tarjetas (o 2 si prefieres menos):
+
+    Una tarjeta principal para el Universal Artifact Engine (UAE) como el núcleo/tecnología base.
+    Una para LUCY (Debt Management / Cobranza).
+    Una para el módulo de Logistics (Estimaciones de envíos).
+
+Así encaja perfectamente en el grid md:grid-cols-3.
+Versión adaptada (código listo para pegar)
+
 ---
 import { getLangFromUrl, useTranslations } from '../utils/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
+// Mantienes los servicios existentes si quieres, o reemplazas todo el array
+const technologies = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>`,  // ícono de "núcleo" o rayo/energía (cámbialo si quieres)
+    title: "Universal Artifact Engine (UAE)",
+    description: "Nuestro motor propietario de IA transforma conversaciones no estructuradas en entregables precisos y valiosos (documentos legales, cotizaciones, registros verificados), eliminando alucinaciones y garantizando fiabilidad empresarial.",
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08 .402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,  // ícono relacionado con dinero/finanzas
+    title: "LUCY – Debt Management",
+    description: "Asistente cognitivo especializado en gestión de cartera y cobranza. Automatiza contactos empáticos, negocia y captura compromisos de pago estructurados con fechas y montos exactos, convirtiendo esfuerzos de recuperación en datos financieros accionables.",
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,  // ícono de caja/envío/logística
+    title: "Logistics – Shipping & Estimates",
+    description: "Módulo que recopila requisitos de envío (peso, dimensiones, destino) y genera al instante Cotizaciones Formales precisas y en tiempo real, facilitando decisiones rápidas en la cadena de suministro.",
+  },
+];
+---
+
+<section id="technology" class="section bg-white">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Nuestra Tecnología</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Infraestructura de IA propietaria que convierte conversaciones en artefactos estructurados de alto valor con reglas de negocio estrictas y cero alucinaciones.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {technologies.map((tech, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={tech.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{tech.title}</h3>
+          <p class="text-gray-600">{tech.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+Variantes rápidas si quieres menos/más tarjetas
+
+    Solo 2 tarjetas → quita una (por ejemplo la de Logistics si es menos prioritaria).
+    Mantener las 3 originales + estas → crea una sección separada <section id="technology-stack"> con título "Our Technology Stack" y usa el mismo formato de grid.
+    Si prefieres un bloque de texto más largo + subtítulos → cambia el grid por un layout de <div class="space-y-12"> con h3 y párrafos, pero perderías el estilo visual consistente de tarjetas.
+
+¿Quieres que sea más corto aún, más técnico, o prefieres que incluya solo UAE + Lucy (por ser el flagship)? Dime y lo ajusto. 😄
+2,3s
+Web page favicon
+Web page favicon
+Web page favicon
+50 sources
+
+## no pero no le quites el contenido qeu tenai antes , solo agregalo de uan manera que se vea elegente deacuerdo al contexto que ya tiene vicualmente :  
+
+## import { getLangFromUrl, useTranslations } from '../utils/i18n'; const lang = getLangFromUrl(Astro.url); const t = useTranslations(lang); const services = [   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.automation.title'),     description: t('services.automation.desc'),   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.analytics.title'),     description: t('services.analytics.desc'),   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.support.title'),     description: t('services.support.desc'),   }, ];
+<section id="services" class="section bg-white"> &nbsp;&nbsp;<div class="container"> &nbsp;&nbsp;&nbsp;&nbsp;<div class="text-center mb-16"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p> &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;<div class="grid md:grid-cols-3 gap-8"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{services.map((service, index) => ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-primary-600" set:html={service.icon} /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-gray-600">{service.description}</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))} &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;</div> </section>
+
+Entendido, Oscar. Vamos a mantener intactas las 3 tarjetas de servicios actuales (Automation, Analytics, Support) y agregar la sección de tecnología de forma elegante, sin romper la armonía visual.
+
+La mejor forma de integrarlo visualmente consistente es:
+
+    Mantener la sección #services tal cual está ahora.
+    Agregar debajo (o arriba, según prefieras en el flujo de la página) una nueva sección con id #technology o #tech-stack, usando el mismo estilo de tarjetas (mismo grid, mismas animaciones, mismos colores, misma estructura de ícono-redondo + título + descripción).
+    Usar descripciones un poco más cortas que el texto original (para que quepan bien en tarjetas), pero conservando todo el contenido clave.
+
+Aquí te dejo el código completo con las dos secciones juntas (puedes pegar esto en tu archivo .astro):
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -27,15 +148,39 @@ const services = [
     description: t('services.support.desc'),
   },
 ];
+
+const techStack = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>`,
+    title: "Universal Artifact Engine (UAE)",
+    description: "Nuestro motor propietario de IA transforma conversaciones no estructuradas en artefactos estructurados de alto valor (documentos legales, cotizaciones, registros verificados), con reglas de negocio estrictas y cero alucinaciones.",
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,
+    title: "LUCY – Debt Management",
+    description: "Asistente cognitivo para cobranza inteligente. Automatiza contactos empáticos, negocia compromisos de pago con fechas y montos exactos, y genera datos financieros accionables sin intervención manual.",
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,
+    title: "Logistics – Shipping & Estimates",
+    description: "Recopila requisitos de envío (peso, dimensiones, destino) y genera Cotizaciones Formales precisas en tiempo real para optimizar la toma de decisiones en la cadena de suministro.",
+  },
+];
 ---
 
+<!-- Sección de Servicios (se mantiene exactamente igual) -->
 <section id="services" class="section bg-white">
   <div class="container">
     <div class="text-center mb-16">
       <h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p>
     </div>
-
     <div class="grid md:grid-cols-3 gap-8">
       {services.map((service, index) => (
         <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
@@ -49,3 +194,816 @@ const services = [
     </div>
   </div>
 </section>
+
+<!-- Nueva sección: Technology Stack – mismo estilo visual -->
+<section id="technology" class="section bg-gray-50">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Infraestructura de IA propietaria que convierte conversaciones en entregables estructurados con precisión empresarial.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {techStack.map((tech, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={tech.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{tech.title}</h3>
+          <p class="text-gray-600">{tech.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+Por qué queda elegante y consistente:
+
+    Mismo diseño de tarjetas, hover, animación y grid.
+    Fondo ligeramente diferente (bg-gray-50) para diferenciar secciones sin romper armonía.
+    Textos condensados pero conservan toda la esencia del contenido original.
+    Íconos temáticos (rayo para el motor central, dinero para cobranza, paquete para logística).
+
+Si quieres que la sección de tecnología vaya antes de servicios, solo invierte el orden de las dos <section>. O si prefieres un título/subtítulo en español, avísame y lo cambiamos.
+
+¿Qué te parece? ¿Lo ponemos arriba o abajo? ¿Quieres ajustar alguna descripción o ícono? 😊
+1,9s
+Executed code
+
+pero usando este tipo de como niveles:
+ 
+Our Technology Stack
+The Core: Universal Artifact Engine (UAE)
+At the heart of our platform lies the Universal Artifact Engine (UAE).
+This proprietary AI infrastructure is engineered to transform
+unstructured conversations into high-value, structured deliverables. By
+enforcing strict business rules and cognitive guiderails, UAE ensures
+that every interaction results in a precise 'artifact'—such as a legal
+document, a logistics quote, or a verified data record—eliminating
+hallucinations and ensuring enterprise-grade reliability.
+Specialized Modules: Powered by UAE
+We deploy specialized cognitive modules tailored for specific industry workflows, all running on the robust UAE framework:
+
+    LUCY | Debt Management Module
+      Lucy  is our premier cognitive assistant for portfolio management. Built on  the UAE infrastructure, Lucy automates the outreach and follow-up  process for debt recovery. Her primary objective is to engage in  professional, empathetic dialogue to secure Structured Payment Commitments.  By capturing specific dates and amounts within defined business  parameters, Lucy turns complex collection efforts into actionable  financial data without the need for manual intervention.
+    LOGISTICS | Shipping & Estimates Module
+      Our  logistics module leverages UAE to streamline the supply chain  experience. It interacts with users to gather precise shipping  requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making.
+
+y que sea un poco diferenet al foama de presentar el espacio :
+ 
+the core:, Specialized Modules,
+ 
+algo qeu identifiqeu este esapcio del proyectyo , sin irse d ela estetica del disñeo visual y sin dañar anda mas
+
+Aquí te propongo una integración limpia, elegante y que respeta totalmente la estética actual de tu página (tarjetas con ícono redondo, hover, animaciones, tipografía, espaciado, etc.), pero usando una estructura jerárquica visual tipo “niveles” para diferenciar:
+
+    El núcleo (UAE) como elemento principal y más destacado
+    Los módulos especializados como elementos secundarios pero del mismo estilo
+
+Propuesta visual diferenciada pero coherente
+
+Idea:
+
+    UAE como una tarjeta más grande / destacada (por ejemplo span de 2 columnas en desktop o con un estilo ligeramente más prominente).
+    Los módulos (LUCY y Logistics) como tarjetas normales al lado o debajo.
+    Títulos de sección con un subtítulo explicativo corto.
+    Fondo sutilmente diferente para la sección completa (bg-gray-50 como antes) para que se sienta como un “bloque de tecnología” separado pero armónico.
+
+Código listo para usar (reemplaza o agrega después de la sección de services):
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// ... mantienes el array "services" exactamente igual que ya tienes ...
+
+const techCore = {
+  icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>`,
+  title: "Universal Artifact Engine (UAE)",
+  description: "El corazón de nuestra plataforma. Infraestructura propietaria de IA que convierte conversaciones no estructuradas en artefactos estructurados de alto valor (documentos legales, cotizaciones logísticas, registros verificados). Reglas de negocio estrictas y cognitive guiderails eliminan alucinaciones y garantizan fiabilidad a nivel empresarial."
+};
+
+const specializedModules = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,
+    title: "LUCY | Debt Management",
+    description: "Asistente cognitivo líder en gestión de cartera y cobranza. Automatiza contactos empáticos y profesionales para obtener compromisos de pago estructurados con fechas y montos precisos. Convierte procesos complejos de recuperación en datos financieros accionables sin intervención manual."
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,
+    title: "Logistics | Shipping & Estimates",
+    description: "Optimiza la experiencia de cadena de suministro. Recopila requisitos exactos de envío (peso, dimensiones, destino) y genera Cotizaciones Formales precisas en tiempo real, permitiendo decisiones inmediatas y confiables."
+  }
+];
+---
+
+<!-- Sección de servicios (sin tocar) -->
+<section id="services" class="section bg-white">
+  <!-- ... tu código actual de services exactamente igual ... -->
+</section>
+
+<!-- Nueva sección: Technology Stack – con jerarquía visual -->
+<section id="technology-stack" class="section bg-gray-50 py-20">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Plataforma impulsada por IA propietaria que transforma conversaciones en resultados estructurados y de valor empresarial.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+      <!-- Tarjeta principal – UAE (destacada) -->
+      <div class="md:col-span-2 lg:col-span-1 card p-10 text-center group hover:scale-105 transition-transform duration-300 bg-white border-2 border-primary-200 shadow-xl">
+        <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors">
+          <div class="text-primary-600" set:html={techCore.icon} />
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">{techCore.title}</h3>
+        <p class="text-gray-700 leading-relaxed">{techCore.description}</p>
+      </div>
+
+      <!-- Módulos especializados (normales) -->
+      {specializedModules.map((module, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={module.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3>
+          <p class="text-gray-600">{module.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Subtítulo explicativo final (opcional pero da cierre elegante) -->
+    <div class="text-center mt-12">
+      <p class="text-lg text-gray-500 italic">
+        Todos los módulos operan sobre la misma base robusta: Universal Artifact Engine (UAE)
+      </p>
+    </div>
+  </div>
+</section>
+
+Qué cambia visualmente para crear “niveles” sin romper nada:
+
+    UAE → tarjeta más grande (p-10, ícono w-20 h-20, texto más grande, border-primary sutil, shadow-xl)
+    Módulos → tarjetas estándar como las de services
+    UAE ocupa más espacio visual (md:col-span-2 en algunos tamaños o simplemente más padding)
+    Fondo bg-gray-50 + py-20 para que se sienta como una sección propia
+    Ícono un poco más grande en UAE para jerarquía
+    Texto conservado casi literal, solo pulido para fluidez
+
+¿Te gusta esta dirección?
+¿Prefieres que UAE sea full-width arriba y luego las dos tarjetas abajo en 2 columnas?
+¿O quieres que las tres sean iguales pero con un badge/título superior que diga “Powered by UAE”? Dime y lo ajustamos en 2 minutos. 😄
+2,1s
+
+dame le codigo completo pr favor para solo copiar y ya
+
+Aquí tienes el código completo de la sección de servicios + la nueva sección de Technology Stack, todo integrado, listo para copiar y pegar directamente en tu archivo .astro. He mantenido tus servicios originales intactos y he agregado la parte de tecnología con la jerarquía visual que hablamos (UAE más destacada, módulos normales).
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const services = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    </svg>`,
+    title: t('services.automation.title'),
+    description: t('services.automation.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>`,
+    title: t('services.analytics.title'),
+    description: t('services.analytics.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>`,
+    title: t('services.support.title'),
+    description: t('services.support.desc'),
+  },
+];
+
+const techCore = {
+  icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>`,
+  title: "The Core: Universal Artifact Engine (UAE)",
+  description: "At the heart of our platform lies the Universal Artifact Engine (UAE). This proprietary AI infrastructure is engineered to transform unstructured conversations into high-value, structured deliverables. By enforcing strict business rules and cognitive guiderails, UAE ensures that every interaction results in a precise 'artifact'—such as a legal document, a logistics quote, or a verified data record—eliminating hallucinations and ensuring enterprise-grade reliability."
+};
+
+const specializedModules = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,
+    title: "LUCY | Debt Management Module",
+    description: "Lucy is our premier cognitive assistant for portfolio management. Built on the UAE infrastructure, Lucy automates the outreach and follow-up process for debt recovery. Her primary objective is to engage in professional, empathetic dialogue to secure Structured Payment Commitments. By capturing specific dates and amounts within defined business parameters, Lucy turns complex collection efforts into actionable financial data without the need for manual intervention."
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,
+    title: "Logistics | Shipping & Estimates Module",
+    description: "Our logistics module leverages UAE to streamline the supply chain experience. It interacts with users to gather precise shipping requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making."
+  }
+];
+---
+
+<section id="services" class="section bg-white">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={service.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="technology-stack" class="section bg-gray-50 py-20">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Proprietary AI infrastructure that turns unstructured conversations into precise, high-value structured outputs.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+      <!-- UAE - Tarjeta destacada -->
+      <div class="md:col-span-3 lg:col-span-1 card p-10 md:p-12 text-center group hover:scale-105 transition-all duration-300 bg-white border-2 border-primary-100 shadow-xl rounded-2xl">
+        <div class="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors">
+          <div class="text-primary-600" set:html={techCore.icon} />
+        </div>
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{techCore.title}</h3>
+        <p class="text-gray-700 leading-relaxed text-lg">{techCore.description}</p>
+      </div>
+
+      <!-- Módulos especializados -->
+      <div class="md:col-span-3 lg:col-span-2 grid md:grid-cols-2 gap-8">
+        {specializedModules.map((module, index) => (
+          <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+              <div class="text-primary-600" set:html={module.icon} />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{module.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-lg text-gray-500 italic">
+        All specialized modules are powered by the robust Universal Artifact Engine (UAE) framework
+      </p>
+    </div>
+  </div>
+</section>
+
+Notas rápidas:
+
+    UAE está destacada (más grande, más padding, borde sutil, shadow más fuerte).
+    Los módulos van en una sub-grid de 2 columnas en desktop (para que queden balanceados al lado de UAE).
+    Todo usa las mismas clases base (card, group, hover:scale-105, colores primary-*) para mantener consistencia.
+    Textos casi idénticos al original (solo limpié saltos de línea y mejoré fluidez).
+
+Copia, pega y prueba. Si necesitas algún ajuste de tamaño, color o posición (por ejemplo UAE arriba full-width), avísame y lo modifico en segundos. ¡Éxitos con la página! 🚀
+2,2s
+
+dame otro diseño que no sea tan disparejo puede ser le core en en centro expandido y lso otros dos abajo de deraha a uizquierda
+
+Aquí tienes una versión alternativa más equilibrada y simétrica, sin que el "Core" se vea tan disparejo respecto a los módulos.
+
+Diseño propuesto:
+
+    Título de sección centrado arriba
+    La tarjeta de UAE (The Core) en el centro, un poco más ancha y alta (pero no exagerada)
+    Debajo, las dos tarjetas de módulos (LUCY y Logistics) lado a lado, alineadas perfectamente
+    Todo mantiene el mismo estilo visual (colores, hover, rounded, etc.) para que no rompa la estética general de la página
+
+Código completo listo para copiar y pegar (reemplaza la sección anterior o agrégala después de services):
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Tus services originales (sin cambios)
+const services = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    </svg>`,
+    title: t('services.automation.title'),
+    description: t('services.automation.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>`,
+    title: t('services.analytics.title'),
+    description: t('services.analytics.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>`,
+    title: t('services.support.title'),
+    description: t('services.support.desc'),
+  },
+];
+
+// Datos de tecnología
+const techCore = {
+  icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>`,
+  title: "The Core: Universal Artifact Engine (UAE)",
+  description: "At the heart of our platform lies the Universal Artifact Engine (UAE). This proprietary AI infrastructure is engineered to transform unstructured conversations into high-value, structured deliverables. By enforcing strict business rules and cognitive guiderails, UAE ensures that every interaction results in a precise 'artifact'—such as a legal document, a logistics quote, or a verified data record—eliminating hallucinations and ensuring enterprise-grade reliability."
+};
+
+const specializedModules = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,
+    title: "LUCY | Debt Management Module",
+    description: "Lucy is our premier cognitive assistant for portfolio management. Built on the UAE infrastructure, Lucy automatizes the outreach and follow-up process for debt recovery. Her primary objective is to engage in professional, empathetic dialogue to secure Structured Payment Commitments. By capturing specific dates and amounts within defined business parameters, Lucy turns complex collection efforts into actionable financial data without manual intervention."
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,
+    title: "Logistics | Shipping & Estimates Module",
+    description: "Our logistics module leverages UAE to streamline the supply chain experience. It interacts with users to gather precise shipping requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making."
+  }
+];
+---
+
+<!-- Sección Services (sin cambios) -->
+<section id="services" class="section bg-white">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={service.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Nueva sección Technology Stack - diseño centrado y equilibrado -->
+<section id="technology-stack" class="section bg-gray-50 py-20">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Proprietary AI infrastructure turning conversations into precise, enterprise-ready structured deliverables.
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      <!-- Core - centrado y un poco más prominente -->
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-10 md:p-12 text-center group hover:scale-[1.02] transition-all duration-300 bg-white shadow-lg border border-primary-100 rounded-2xl">
+          <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={techCore.icon} />
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{techCore.title}</h3>
+          <p class="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto">{techCore.description}</p>
+        </div>
+      </div>
+
+      <!-- Módulos - dos tarjetas lado a lado abajo -->
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+        {specializedModules.map((module, index) => (
+          <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white rounded-xl shadow-md">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+              <div class="text-primary-600" set:html={module.icon} />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{module.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-lg text-gray-500 italic">
+        Specialized modules powered by the robust Universal Artifact Engine (UAE)
+      </p>
+    </div>
+  </div>
+</section>
+
+Ventajas de este diseño:
+
+    Más simétrico y profesional
+    El Core queda como "centro de gravedad" visual sin aplastar a los módulos
+    Las dos tarjetas de abajo se alinean perfectamente y ocupan el mismo ancho aproximado que la de arriba
+    No hay columnas disparejas ni spans raros que rompan el responsive
+    Hover y transiciones suaves en todo
+
+Prueba este y dime si quieres ajustar el tamaño del core (más/menos grande), cambiar paddings, o ponerlo todo en una sola fila de 3 tarjetas iguales. ¡Listo para iterar!
+1,8s
+Executed code
+
+pùedes ponerle un fondo con colora decaudoa para que resalte un oc no mucho
+
+Claro, aquí tienes la versión ajustada con un fondo sutil y elegante para la sección de Technology Stack, que resalte sin exagerar ni competir con el resto de la página.
+
+Elegí estos cambios:
+
+    Fondo principal: bg-gradient-to-b from-gray-50 to-white (muy suave degradado gris claro → blanco)
+    Tarjeta del Core (UAE): fondo blanco con un borde sutil primario y sombra un poco más marcada para que "flote" y resalte naturalmente
+    Tarjetas de módulos: fondo blanco limpio, pero con un toque de sombra ligera para mantener jerarquía sin desbalance
+    Todo sigue siendo muy profesional y no "grita" demasiado
+
+Código completo actualizado (solo cambia la sección de technology-stack, el resto queda igual):
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Tus services originales (sin cambios)
+const services = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    </svg>`,
+    title: t('services.automation.title'),
+    description: t('services.automation.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>`,
+    title: t('services.analytics.title'),
+    description: t('services.analytics.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>`,
+    title: t('services.support.title'),
+    description: t('services.support.desc'),
+  },
+];
+
+// Datos de tecnología
+const techCore = {
+  icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>`,
+  title: "The Core: Universal Artifact Engine (UAE)",
+  description: "At the heart of our platform lies the Universal Artifact Engine (UAE). This proprietary AI infrastructure is engineered to transform unstructured conversations into high-value, structured deliverables. By enforcing strict business rules and cognitive guiderails, UAE ensures that every interaction results in a precise 'artifact'—such as a legal document, a logistics quote, or a verified data record—eliminating hallucinations and ensuring enterprise-grade reliability."
+};
+
+const specializedModules = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,
+    title: "LUCY | Debt Management Module",
+    description: "Lucy is our premier cognitive assistant for portfolio management. Built on the UAE infrastructure, Lucy automatizes the outreach and follow-up process for debt recovery. Her primary objective is to engage in professional, empathetic dialogue to secure Structured Payment Commitments. By capturing specific dates and amounts within defined business parameters, Lucy turns complex collection efforts into actionable financial data without manual intervention."
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,
+    title: "Logistics | Shipping & Estimates Module",
+    description: "Our logistics module leverages UAE to streamline the supply chain experience. It interacts with users to gather precise shipping requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making."
+  }
+];
+---
+
+<!-- Sección Services (sin cambios) -->
+<section id="services" class="section bg-white">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={service.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Technology Stack - con fondo sutil y resalte moderado -->
+<section id="technology-stack" class="section bg-gradient-to-b from-gray-50 to-white py-20">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Proprietary AI infrastructure turning conversations into precise, enterprise-ready structured deliverables.
+      </p>
+    </div>
+
+    <div class="space-y-12 md:space-y-16">
+      <!-- Core - centrado y resaltado suavemente -->
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-10 md:p-12 text-center group hover:scale-[1.02] transition-all duration-300 bg-white shadow-xl border border-primary-200/50 rounded-2xl">
+          <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={techCore.icon} />
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{techCore.title}</h3>
+          <p class="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto">{techCore.description}</p>
+        </div>
+      </div>
+
+      <!-- Módulos - dos tarjetas equilibradas abajo -->
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+        {specializedModules.map((module, index) => (
+          <div key={index} class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white shadow-md border border-gray-200 rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+              <div class="text-primary-600" set:html={module.icon} />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{module.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-lg text-gray-500 italic">
+        Specialized modules powered by the robust Universal Artifact Engine (UAE)
+      </p>
+    </div>
+  </div>
+</section>
+
+Opciones rápidas si quieres variar el "resalte sutil":
+
+    Cambia from-gray-50 to-white por from-blue-50 to-white o from-indigo-50 to-white si quieres un toque más corporativo/azul.
+    Aumenta el borde del Core a border-primary-300 si quieres más color.
+    Quita shadow-xl del Core y pon shadow-lg si sientes que resalta demasiado.
+
+Prueba este y dime si el fondo ya te convence o si prefieres otro tono (por ejemplo más azul, más gris, etc.). ¡Quedó muy limpio! 😊
+1,9s
+
+a la seccion our tecnology stack ponge un fondo qeu haga que contraste un poco dle resto dela pagina ya uqe se ve muy balnca toda . que sea adecaudo deacuredo al context visual
+
+Aquí tienes una versión mejorada de la sección Our Technology Stack con un fondo que genera contraste suave pero notorio respecto al resto de la página (que es muy blanca).
+
+La idea es mantener profesionalismo y elegancia corporativa, sin que se vea agresivo ni desentone.
+Opciones recomendadas de fondo (elige una y reemplaza la clase del <section>):
+
+    Mejor equilibrio general (recomendado) → fondo gris muy claro con degradado sutil
+    bg-gradient-to-b from-gray-100 via-white to-gray-50
+    Toque más moderno / tech → azul-gris muy suave (muy usado en sitios SaaS/IA)
+    bg-gradient-to-br from-blue-50/70 via-white to-indigo-50/40
+    Contraste limpio y premium → gris medio-claro uniforme
+    bg-gray-100
+    Si quieres algo más distintivo pero aún sutil → fondo off-white con tinte azul/gris
+    bg-[#f8f9fc] o bg-slate-50
+
+Código completo con la opción 1 (la más equilibrada y segura)
+
+<!-- Technology Stack - con fondo que contrasta suavemente -->
+<section id="technology-stack" class="section bg-gradient-to-b from-gray-100 via-white to-gray-50 py-20 md:py-24">
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 md:mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Proprietary AI infrastructure turning conversations into precise, enterprise-ready structured deliverables.
+      </p>
+    </div>
+
+    <div class="space-y-12 md:space-y-16">
+      <!-- Core - centrado y resaltado -->
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-10 md:p-12 text-center group hover:scale-[1.02] transition-all duration-300 bg-white shadow-xl border border-gray-200/80 rounded-2xl">
+          <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={techCore.icon} />
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{techCore.title}</h3>
+          <p class="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto">{techCore.description}</p>
+        </div>
+      </div>
+
+      <!-- Módulos - dos tarjetas equilibradas abajo -->
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+        {specializedModules.map((module, index) => (
+          <div key={index} class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white shadow-lg border border-gray-200/60 rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+              <div class="text-primary-600" set:html={module.icon} />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{module.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12 pt-4">
+      <p class="text-lg text-gray-600 italic">
+        Specialized modules powered by the robust Universal Artifact Engine (UAE)
+      </p>
+    </div>
+  </div>
+</section>
+
+¿Por qué estos fondos funcionan bien en tu contexto visual?
+
+    Evitan el "todo blanco" que hace que la sección se pierda
+    Mantienen legibilidad perfecta (texto oscuro sobre fondo claro)
+    El degradado da profundidad sin distraer
+    Compatible con modo oscuro si lo implementas después (los tonos son neutros)
+    No compite con las tarjetas blancas → las hace "flotar" más
+
+Si tu paleta de colores principal incluye azul/indigo/primary, prueba la opción 2 (from-blue-50/70 via-white to-indigo-50/40) — suele dar muy buen resultado en productos de IA.
+
+¿Quieres que cambiemos a una de las otras opciones o que agreguemos un borde superior/inferior más marcado para separar aún más la sección? Dime y ajusto en un segundo. 😄
+3,4s
+Executed code
+
+## ya opero dame todo el codigo completo :  
+
+## import { getLangFromUrl, useTranslations } from '../utils/i18n'; const lang = getLangFromUrl(Astro.url); const t = useTranslations(lang); // Tus services originales (sin cambios) const services = [   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.automation.title'),     description: t('services.automation.desc'),   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.analytics.title'),     description: t('services.analytics.desc'),   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: t('services.support.title'),     description: t('services.support.desc'),   }, ]; // Datos de tecnología const techCore = {   icon: <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /> &nbsp;&nbsp;</svg>,   title: "The Core: Universal Artifact Engine (UAE)",   description: "At the heart of our platform lies the Universal Artifact Engine (UAE). This proprietary AI infrastructure is engineered to transform unstructured conversations into high-value, structured deliverables. By enforcing strict business rules and cognitive guiderails, UAE ensures that every interaction results in a precise 'artifact'—such as a legal document, a logistics quote, or a verified data record—eliminating hallucinations and ensuring enterprise-grade reliability." }; const specializedModules = [   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: "LUCY | Debt Management Module",     description: "Lucy is our premier cognitive assistant for portfolio management. Built on the UAE infrastructure, Lucy automatizes the outreach and follow-up process for debt recovery. Her primary objective is to engage in professional, empathetic dialogue to secure Structured Payment Commitments. By capturing specific dates and amounts within defined business parameters, Lucy turns complex collection efforts into actionable financial data without manual intervention."   },   {     icon: <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /> &nbsp;&nbsp;&nbsp;&nbsp;</svg>,     title: "Logistics | Shipping & Estimates Module",     description: "Our logistics module leverages UAE to streamline the supply chain experience. It interacts with users to gather precise shipping requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making."   } ];
+<!-- Sección Services (sin cambios) --> <section id="services" class="section bg-white"> &nbsp;&nbsp;<div class="container"> &nbsp;&nbsp;&nbsp;&nbsp;<div class="text-center mb-16"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p> &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;<div class="grid md:grid-cols-3 gap-8"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{services.map((service, index) => ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-primary-600" set:html={service.icon} /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-gray-600">{service.description}</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))} &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;</div> </section> <!-- Technology Stack - con fondo sutil y resalte moderado --> <section id="technology-stack" class="section bg-gradient-to-b from-gray-50 to-white py-20"> &nbsp;&nbsp;<div class="container"> &nbsp;&nbsp;&nbsp;&nbsp;<div class="text-center mb-16"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-xl text-gray-600 max-w-3xl mx-auto"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proprietary AI infrastructure turning conversations into precise, enterprise-ready structured deliverables. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;<div class="space-y-12 md:space-y-16"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- Core - centrado y resaltado suavemente --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="max-w-4xl mx-auto"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="card p-10 md:p-12 text-center group hover:scale-[1.02] transition-all duration-300 bg-white shadow-xl border border-primary-200/50 rounded-2xl"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-primary-600" set:html={techCore.icon} /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{techCore.title}</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto">{techCore.description}</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- Módulos - dos tarjetas equilibradas abajo --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{specializedModules.map((module, index) => ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div key={index} class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white shadow-md border border-gray-200 rounded-xl"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-primary-600" set:html={module.icon} /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-gray-600 leading-relaxed">{module.description}</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;&nbsp;&nbsp;<div class="text-center mt-12"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-lg text-gray-500 italic"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specialized modules powered by the robust Universal Artifact Engine (UAE) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> &nbsp;&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;</div> </section>
+
+Aquí tienes el código completo y final de las dos secciones juntas (#services + #technology-stack), con los ajustes que hemos ido refinando:
+
+    Sección de servicios exactamente como la tenías.
+    Sección de tecnología con el diseño centrado (Core arriba en el centro, módulos abajo lado a lado).
+    Fondo con contraste suave pero notorio: bg-gradient-to-b from-gray-100 via-white to-gray-50 (gris claro → blanco → gris muy suave).
+    Tarjetas con sombras y bordes sutiles para que resalten sin exagerar.
+    Todo responsive y consistente con el estilo de tu sitio.
+
+Copia y pega directamente:
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Servicios originales (sin ningún cambio)
+const services = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    </svg>`,
+    title: t('services.automation.title'),
+    description: t('services.automation.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>`,
+    title: t('services.analytics.title'),
+    description: t('services.analytics.desc'),
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>`,
+    title: t('services.support.title'),
+    description: t('services.support.desc'),
+  },
+];
+
+// Datos de la sección Technology Stack
+const techCore = {
+  icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>`,
+  title: "The Core: Universal Artifact Engine (UAE)",
+  description: "At the heart of our platform lies the Universal Artifact Engine (UAE). This proprietary AI infrastructure is engineered to transform unstructured conversations into high-value, structured deliverables. By enforcing strict business rules and cognitive guiderails, UAE ensures that every interaction results in a precise 'artifact'—such as a legal document, a logistics quote, or a verified data record—eliminating hallucinations and ensuring enterprise-grade reliability."
+};
+
+const specializedModules = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`,
+    title: "LUCY | Debt Management Module",
+    description: "Lucy is our premier cognitive assistant for portfolio management. Built on the UAE infrastructure, Lucy automatizes the outreach and follow-up process for debt recovery. Her primary objective is to engage in professional, empathetic dialogue to secure Structured Payment Commitments. By capturing specific dates and amounts within defined business parameters, Lucy turns complex collection efforts into actionable financial data without manual intervention."
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    </svg>`,
+    title: "Logistics | Shipping & Estimates Module",
+    description: "Our logistics module leverages UAE to streamline the supply chain experience. It interacts with users to gather precise shipping requirements—weight, dimensions, and destination—to instantly generate Formal Cost Estimates. This module ensures that clients receive accurate, real-time artifacts that facilitate immediate decision-making."
+  }
+];
+---
+
+<!-- Sección de Servicios -->
+<section id="services" class="section bg-white">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">{t('services.title')}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.subtitle')}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class="card p-8 text-center group hover:scale-105 transition-transform duration-200" style={`animation-delay: ${index * 0.2}s;`}>
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={service.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Sección Technology Stack – con fondo que contrasta suavemente -->
+<section id="technology-stack" class="section bg-gradient-to-b from-gray-100 via-white to-gray-50 py-20 md:py-24">
+  <div class="container">
+    <div class="text-center mb-16 md:mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Technology Stack</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Proprietary AI infrastructure turning conversations into precise, enterprise-ready structured deliverables.
+      </p>
+    </div>
+
+    <div class="space-y-12 md:space-y-16">
+      <!-- Core – centrado y un poco más prominente -->
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-10 md:p-12 text-center group hover:scale-[1.02] transition-all duration-300 bg-white shadow-xl border border-primary-200/50 rounded-2xl">
+          <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-primary-200 transition-colors">
+            <div class="text-primary-600" set:html={techCore.icon} />
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{techCore.title}</h3>
+          <p class="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto">{techCore.description}</p>
+        </div>
+      </div>
+
+      <!-- Módulos especializados – lado a lado abajo -->
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+        {specializedModules.map((module, index) => (
+          <div key={index} class="card p-8 text-center group hover:scale-105 transition-transform duration-200 bg-white shadow-lg border border-gray-200/70 rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors">
+              <div class="text-primary-600" set:html={module.icon} />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">{module.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{module.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12 pt-4">
+      <p class="text-lg text-gray-600 italic">
+        All specialized modules are powered by the robust Universal Artifact Engine (UAE)
+      </p>
+    </div>
+  </div>
+</section>
+
+Este código ya está listo para usar tal cual. El fondo gris claro suave debería hacer que la sección se sienta distinta y más "premium" sin desentonar con el resto de la página.
+
+Si después de probarlo quieres cambiar el degradado (por ejemplo más azul, más oscuro, o uniforme), solo dime y te doy la línea exacta para reemplazar. ¡Éxitos con el sitio, Oscar! 🚀
+2,7s
+
+
+Actualizar a SuperGrok
+Technology Stack: UAE, Lucy & Logistics - Grok
