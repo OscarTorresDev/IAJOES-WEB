@@ -8,8 +8,6 @@ lang: 'en'
 featured: true
 ---
 
-# Lucy, The AI Coordinator: Handling 8,000 Debtors with Unbeatable Efficiency
-
 **Sub-Headline:** A nationwide mortgage campaign coordinator now prefers working with an AI chatbot—proof that custom automation transforms small business success.
 
 ## The Goal: Democratizing AI for Maximum Impact
