@@ -8,8 +8,6 @@ lang: 'es'
 featured: true
 ---
 
-# Lucy, La Coordinadora IA: Maneja 8.000 Deudores con Eficiencia Imbatible
-
 **Subtítulo:** Una coordinadora nacional de campañas hipotecarias ahora prefiere trabajar con un chatbot IA — prueba de que la automatización personalizada transforma el éxito de las pequeñas empresas.
 
 ## El Objetivo: Democratizar la IA para Máximo Impacto
